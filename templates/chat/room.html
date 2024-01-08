@@ -5,12 +5,23 @@
     <title>Chat Room</title>
 </head>
 <body>
+    <!-- Добавленное поле для имени пользователя -->
+    <label for="username">Username:</label>
+    <input id="username" type="text" readonly/><br/>
+
     <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
     <input id="chat-message-input" type="text" size="100"/><br/>
     <input id="chat-message-submit" type="button" value="Send"/>
 </body>
 <script>
     var roomName = {{ room_name_json }};
+    var usernameInput = document.querySelector('#username');
+
+    // Генерируйте три случайные цифры
+    var randomNumber = Math.floor(Math.random() * 900) + 100;
+
+    // Обновите поле username с добавлением случайных цифр
+    usernameInput.value = 'TEST-' + randomNumber;
 
     var chatSocket = new WebSocket(
         'ws://' + window.location.host + '/ws/chat/' + roomName + '/');
@@ -35,8 +46,14 @@
     document.querySelector('#chat-message-submit').onclick = function(e) {
         var messageInputDom = document.querySelector('#chat-message-input');
         var message = messageInputDom.value;
+
+        // Получите имя пользователя из поля
+        var username = usernameInput.value;
+
+        // Отправьте сообщение с именем пользователя
         chatSocket.send(JSON.stringify({
-            'message': message
+            'message': message,
+            'username': username
         }));
 
         messageInputDom.value = '';
