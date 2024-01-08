@@ -6,7 +6,7 @@ The project is built using the Django  and Channels (not Django Channels)
 
 ## Development Tools:
 
-    Python >= 3.11
+    Python == 3.11
     Django == 5.0
     Channels == 4.0
 
@@ -40,7 +40,7 @@ The project is built using the Django  and Channels (not Django Channels)
     - Open the terminal in the root directory of the project.
     - Run the command: `docker-compose up --build`.
     - After successful container startup, open a web browser and go to
-      [DRF API](http://127.0.0.1:8000/), [DRF API Documentation](http://127.0.0.1:8000/swagger/)  to access the server.
+      [WEB](http://127.0.0.1:8000/)  to access the Chat server.
 4. **Stopping the Project**
     - To stop the project, press `Ctrl + C` in the terminal, then execute the command: `docker-compose down`.
 > [!TIP]
@@ -66,35 +66,23 @@ Copyright (c) 2023-present, internship Team
 >>  _old version_
 > ---
 
-Project name:
-Backend internship at Mageap
-
-Project description:
-
-This project is an API application. The project is built using the Django REST Framework (DRF) for the API.
-
-Development Tools:
-
-    Python >= 3.11
-    Django == 5.0
-    Django REST Framework 3.14.0
 
 
 Installation and running the project:
 
 1) Clone the repository
 
-       https://github.com/lisivka/racoon-Project.git
+       https://github.com/lisivka/DjangoWebSocketChatBackEnd.git
 2) Create a virtual environment
 
-       cd Racoon-Project
+       cd DjangoWebSocketChatBackEnd
        python -m venv venv
 
 3) Activate virtual environment
 
    Linux
 
-       source venv/bin/activate
+4) source venv/bin/activate
 
    Windows
 
@@ -122,6 +110,17 @@ test data:
 
     python manage.py loaddata data.json
 
-License:
+open browser and connect to chat room, for example:
+   
+   http://127.0.0.1:8000/qwerty/
 
+open different browser and connect to chat room
+   
+   http://127.0.0.1:8000/qwerty/
+
+press F12 and open console
+
+    ws = new WebSocket('ws://
+
+License:
 Copyright (c) 2023-present, LSM
